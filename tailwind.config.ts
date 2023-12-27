@@ -9,11 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'site-auth': 'url("/images/hero.jpg")',
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'site-auth': 'url("/images/hero.jpg")'
       },
+      backgroundColor: {
+        accent: '#e50914'
+      },
+      textColor: {
+        accent: '#e50914'
+      }
     },
   },
   plugins: [],

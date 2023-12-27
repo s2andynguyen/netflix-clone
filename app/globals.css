@@ -2,18 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
 }
 
+@layer base {
+  body {
+    @apply bg-zinc-900 h-full overflow-hidden  
+  }
+  
+  #__next {
+    @apply h-full
+  }
+  
+  html {
+    @apply h-full
+  }
+  .h1 {
+    @apply text-[48px] leading-[1.3] mb-8 font-black;
+  }
+  .h2 {
+    @apply text-[35px] leading-tight mb-4 font-medium;
+  }
+  p {
+    @apply leading-[1.8] text-white font-light;
+  }
 
-body {
-  @apply bg-zinc-900 h-full overflow-hidden  
 }
 
-#__next {
-  @apply h-full
-}
-
-html {
-  @apply h-full
-}
+/* input:-internal-autofill-selected {
+  background: none !important; 
+  color: #fff !important;
+} */
