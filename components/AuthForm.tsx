@@ -1,13 +1,13 @@
 'use client';
 import { useCallback, useState } from 'react';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import { FcGoogle } from 'react-icons/fc';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub } from "react-icons/fa";
 import axios from 'axios';
 import Input from '@/components/Input';
 function AuthForm() {
-  const router = useRouter();
+  // const router = useRouter();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -99,7 +99,7 @@ function AuthForm() {
                 items-center cursor-pointer hover:opacity-80 transition-all duration-150"
             onClick={() => signIn('github', { callbackUrl: '/profiles' })}
           >
-            <FaGithub size={30} />
+            <FaGithub size={30} color={'#000'}/>
           </div>
         </div>
         <div className="text-[#737373] mt-6">
