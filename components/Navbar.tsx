@@ -16,6 +16,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [showBackground, setShowBackground] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if(window.scrollY >= TOP_OFFSET) {
@@ -47,9 +48,13 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
         }`}
       >
         {/* logo */}
-        <div className='h-4 lg:h-7'>
-          <Image src={'/images/logo.png'} 
-            width={178} height={48} alt='logo-netflix'
+        <div className='h-4 lg:h-7 flex justify-center items-center'>
+          <Image 
+            className='w-auto h-4 lg:h-7'
+            src={'/images/logo.png'} 
+            width={178} 
+            height={48} 
+            alt='logo-netflix'
           />
         </div>
 
@@ -90,10 +95,10 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             onClick={toggleAccountMenu}
           >
             <div className='w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden'>
-              <Image src={user?.image} width={40} height={40} alt={'avatar-img'}/>
+              <Image src={user.image ? user.image : '/images/default-blue.png'} width={40} height={40} alt={'avatar-img'}/>
             </div>
             <BsChevronDown className={`transition duration-200 ${showAccountMenu? 'rotate-180': ''}`} />
-            <AccountMenu visible={showAccountMenu} imageUrl={user?.image} name={user.name}/>
+            <AccountMenu visible={showAccountMenu} imageUrl={user.image != '' ? user.image : '/images/default-blue.png'} name={user.name}/>
           </div>
         </div>
       </nav>

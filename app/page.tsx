@@ -8,8 +8,10 @@ import MovieListGetData from '@/components/MovieListGetData';
 import serverAuth from '@/lib/serverAuth';
 
 export default async function Home() {
-  const { currentUser } = await serverAuth()
-  if(!currentUser) return redirect('/')
+
+  const session = await getServerSession(authOption);
+  if (!session) return redirect('/auth')
+  const {currentUser} = await serverAuth()
 
   return (
     <div>

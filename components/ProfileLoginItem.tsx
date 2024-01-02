@@ -10,7 +10,7 @@ function ProfileLoginItem({user}:{user:any}) {
           <Image
             className="flex justify-center items-center rounded-md border-2 border-transparent 
                   group-hover:border-white overflow-hidden"
-            src={user.image}
+            src={user.image ? user.image : '/images/default-blue.png' }
             width={176}
             height={176}
             alt="image"
