@@ -5,17 +5,17 @@ import { redirect } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Billboard from '@/components/Billboard';
 import MovieListGetData from '@/components/MovieListGetData';
-import serverAuth from '@/lib/serverAuth';
+import InfoModalControl from '@/components/InfoModalControl';
 
 export default async function Home() {
 
   const session = await getServerSession(authOption);
   if (!session) return redirect('/auth')
-  const {currentUser} = await serverAuth()
 
   return (
     <div>
-      <Navbar user={currentUser}/>
+      <InfoModalControl />
+      <Navbar/>
       <Billboard />
       <div className='pb-40'>
         <MovieListGetData/>

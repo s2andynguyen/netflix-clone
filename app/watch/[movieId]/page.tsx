@@ -1,8 +1,7 @@
 "use client"
 import React from 'react'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import useMovie from '@/hooks/useMovie'
-import { useRouter } from 'next/navigation'
 import { AiOutlineArrowLeft } from "react-icons/ai";
 function Watch() {
   const param = useParams();

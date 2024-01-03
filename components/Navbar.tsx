@@ -7,12 +7,12 @@ import Image from 'next/image';
 import NavbarItem from './NavbarItem';
 import MobileMenu from './MobileMenu';
 import AccountMenu from './AccountMenu';
+import useCurrentUser from '@/hooks/useCurrentUser';
 
 const TOP_OFFSET = 66;
-interface NavbarProps {
-  user: any
-}
-const Navbar: React.FC<NavbarProps> = ({ user }) => {
+
+const Navbar = () => {
+  const { data } = useCurrentUser();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [showBackground, setShowBackground] = useState(false);
@@ -47,7 +47,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
           showBackground ? ' bg-zinc-900 bg-opacity-90' : ''
         }`}
       >
-        {/* logo */}
+        {/* logo */} 
         <div className='h-4 lg:h-7 flex justify-center items-center'>
           <Image 
             className='w-auto h-4 lg:h-7'
@@ -95,10 +95,10 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             onClick={toggleAccountMenu}
           >
             <div className='w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden'>
-              <Image src={user.image ? user.image : '/images/default-blue.png'} width={40} height={40} alt={'avatar-img'}/>
+              <Image src={data.image ? data.image : '/images/default-blue.png'} width={40} height={40} alt={'avatar-img'}/>
             </div>
             <BsChevronDown className={`transition duration-200 ${showAccountMenu? 'rotate-180': ''}`} />
-            <AccountMenu visible={showAccountMenu} imageUrl={user.image != '' ? user.image : '/images/default-blue.png'} name={user.name}/>
+            <AccountMenu visible={showAccountMenu}/>
           </div>
         </div>
       </nav>
