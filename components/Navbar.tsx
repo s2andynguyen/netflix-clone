@@ -95,7 +95,7 @@ const Navbar = () => {
             onClick={toggleAccountMenu}
           >
             <div className='w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden'>
-              <Image src={data.image ? data.image : '/images/default-blue.png'} width={40} height={40} alt={'avatar-img'}/>
+              <Image src={data?.image ? data.image : '/images/default-blue.png'} width={40} height={40} alt={'avatar-img'}/>
             </div>
             <BsChevronDown className={`transition duration-200 ${showAccountMenu? 'rotate-180': ''}`} />
             <AccountMenu visible={showAccountMenu}/>
