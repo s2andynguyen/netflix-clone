@@ -1,8 +1,7 @@
-import { NextApiRequest } from 'next';
 import prismadb from '@/lib/prismadb';
 import { getServerSession } from 'next-auth';
 import { authOption } from '@/app/utils/auth';
-export async function GET(req: NextApiRequest) {
+export async function GET() {
   try {
     const session = await getServerSession(authOption);
     if (!session) return Response.json({ message: 'User not login' });
